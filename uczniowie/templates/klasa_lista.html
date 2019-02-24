@@ -1,0 +1,15 @@
+{% extends "szablon.html" %}
+{% block tytul %}Lista klas{% endblock %}
+{% block h1 %}Lista klas{% endblock %}
+
+{% block tresc %}
+<ol>
+    {% for k in klasy %}
+    <li>
+       {{ k.klasa }}
+        <a href="{{ url_for('edytuj', kid=k.id) }}" class="btn btn-primary">Edytuj</a>
+        <a href="{{ url_for('usun', kid=k.id) }}" class="btn btn-primary">Usuń</a>
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "szablon.html" %}
+{% block tytul %}Usuń ucznia{% endblock %}
+{% block h1 %}Usuń ucznia{% endblock %}
+
+{% block tresc %}
+    <form method="POST" action="{{ url_for('usun', uid=uczen.id) }}">
+        <p class="lead">Czy na pewno chcesz usunąć ucznia:</p>
+        <p>{{ uczen.uczen }}?</p>
+        <input type="submit" value="Usuń pytanie">
+    </form>
+{% endblock %}

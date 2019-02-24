@@ -1,0 +1,16 @@
+<form method="POST">
+    
+    {{ form.csrf_token }}
+
+    {{ form.nazwa.label }}<br>
+    {{ form.nazwa(class="form-control") }}<br>
+    <br>
+    {{ form.roknaboru.label }}<br>
+    {{ form.roknaboru(class="form-control") }}<br>
+    <br>
+    {{ form.rokmatury.label }}<br>
+    {{ form.rokmatury(class="form-control") }}<br>
+     
+
+    <input type="submit" value="Zapisz">
+</form>
