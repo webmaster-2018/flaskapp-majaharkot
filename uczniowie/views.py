@@ -32,9 +32,9 @@ def uczen_dodaj():
     
     if form.validate_on_submit():
         u = Uczen(imie=form.imie.data, 
-				  nazwisko=form.nazwisko.data,
-				  plec=form.plec.data,
-				  klasa=form.klasa.data)
+                  nazwisko=form.nazwisko.data,
+                  plec=form.plec.data,
+                  klasa=form.klasa.data)
         u.save()
         
         flash('Dodano ucznia: {} {}'.format(form.imie.data, form.nazwisko.data))
@@ -47,7 +47,7 @@ def get_or_404(uid):
         u = Uczen.get_by_id(uid)
         return u
     except Uczen.DoesNotExist:
-		abort(404)
+        abort(404)
 
 @app.route('/klasa_dodaj')
 def klasa_dodaj():
@@ -56,18 +56,11 @@ def klasa_dodaj():
     
     if form.validate_on_submit():
         k = Klasa(nazwa=form.nazwa.data, 
-				  roknaboru=form.roknaboru.data,
-				  rokmatury=form.rokmatury.data)
+                  roknaboru=form.roknaboru.data,
+                  rokmatury=form.rokmatury.data)
         k.save()
         
         flash('Dodano klasę: {}'.format(form.nazwa.data))
         return redirect(url_for('klasa_lista'))
     
     return render_template('klasa_dodaj.html', form=form)
-
-def get_or_404(kid):
-    try:
-        k = Uczen.get_by_id(kid)
-        return k
-    except Uczen.DoesNotExist:
-        abort(404)
